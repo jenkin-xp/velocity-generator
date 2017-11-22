@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.generator.mapper.GeneratorMapper">
+
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="colResultMap" type="com.generator.model.ColumnDo">
+		<id column="COLUMN_NAME" property="name" />
+		<id column="DATA_TYPE" property="jdbcType" />
+		<id column="COMMENTS" property="comment" />
+		<id column="TABLE_NAME" property="tableName" />
+	</resultMap>
+
+
+
+	<select id="findListColumn" parameterType="java.lang.String" resultMap="colResultMap">
+		select t1.column_name,t1.data_type,t1.table_name,t2.Comments
+		from user_tab_columns t1,user_col_comments t2
+		where
+		  t1.column_name = t2.column_name
+		  and t1.table_name = t2.table_name
+		  and t1.Table_Name in
+			<foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+			        #{item}
+			</foreach>
+		order by t1.table_name,t1.column_name
+	</select>
+
+</mapper>
