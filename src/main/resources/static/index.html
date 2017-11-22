@@ -12,7 +12,7 @@
 
     <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="目录">
-            <el-input v-model="form.outputDir" placeholder="C:\Users\xx\xx\xx\dz\dz-generator\src\main\java" style="width: 98.2%"></el-input>
+            <el-input v-model="form.outputDir" placeholder="C:\Users\xx\xx\xx\generator\src\main\java" style="width: 98.2%"></el-input>
         </el-form-item>
         <el-form-item label="作者">
             <el-col :span="6">
@@ -23,7 +23,7 @@
             </el-col>
             <el-col :span="17">
                 <label>包路径：</label>
-                <el-input v-model="form.packageName" placeholder="com.dz.xx" style="width: 90%"></el-input>
+                <el-input v-model="form.packageName" placeholder="com.xx" style="width: 90%"></el-input>
             </el-col>
         </el-form-item>
         <el-form-item label="模版">
@@ -218,7 +218,7 @@
             tableFields:[],
             dialogTableVisible:false,
             form:{
-                outputDir:'C:\\Users\\lether\\Desktop',
+                outputDir:'D:\\',
                 checkTpl:[],
                 author:'admin',
                 packageName:'com.test'

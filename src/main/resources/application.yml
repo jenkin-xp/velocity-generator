@@ -28,7 +28,7 @@ spring:
 
 ###################  mybatis-plus配置  ###################
 mybatis-plus:
-  mapper-locations: classpath*:com/dz/generator/mapper/xml/*.xml
-  typeAliasesPackage: com.dz.generator.model
+  mapper-locations: classpath*:com/generator/mapper/xml/*.xml
+  typeAliasesPackage: com.generator.model
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用

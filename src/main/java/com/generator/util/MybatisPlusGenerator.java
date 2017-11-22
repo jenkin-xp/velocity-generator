@@ -49,9 +49,9 @@ public class MybatisPlusGenerator {
         String[] tables = generatorDto.getTableNames().split("\\.");
         strategy.setInclude(tables);
         // 自定义 service 父类
-        strategy.setSuperServiceClass("com.dz.core.component.service.IService");
+        strategy.setSuperServiceClass("com.demo.core.component.service.IService");
         // 自定义 service 实现类父类
-        strategy.setSuperServiceImplClass("com.dz.core.component.service.ServiceImpl");
+        strategy.setSuperServiceImplClass("com.demo.core.component.service.ServiceImpl");
         mpg.setStrategy(strategy);
 
         // 包配置

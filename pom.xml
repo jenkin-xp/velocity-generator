@@ -93,7 +93,7 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>com/dz/generator/mapper/xml/*.xml</include>
+                    <include>com/generator/mapper/xml/*.xml</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>

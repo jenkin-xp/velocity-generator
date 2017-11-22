@@ -7,11 +7,11 @@ import java.util.List;
 
 public enum JdbcTypeEnum {
 
-    STRING("java.lang.String","VARCHAR2","String"),
-    INTEGER("java.lang.Integer","NUMBER","Integer"),
+    STRING("java.lang.String","varchar","String"),
+    INTEGER("java.lang.Integer","int","Integer"),
     FLOAT("java.lang.Integer","FLOAT","Integer"),
     CLOB("java.lang.String","CLOB","Integer"),
-    DATE("java.util.Date","DATE","Date");
+    DATE("java.util.Date","datetime","Date");
 
     private String javaType;
     private String jdbcType;
