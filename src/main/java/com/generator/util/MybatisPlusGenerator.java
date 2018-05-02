@@ -37,9 +37,9 @@ public class MybatisPlusGenerator {
             }
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("demo");
-        dsc.setPassword("demo");
-        dsc.setUrl("jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8");
+        dsc.setUsername("admin");
+        dsc.setPassword("123456");
+        dsc.setUrl("jdbc:mysql://10.1.2.163:3306/cq_test?useUnicode=true&characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 策略配置
@@ -49,9 +49,9 @@ public class MybatisPlusGenerator {
         String[] tables = generatorDto.getTableNames().split("\\.");
         strategy.setInclude(tables);
         // 自定义 service 父类
-        strategy.setSuperServiceClass("com.demo.core.component.service.IService");
+        strategy.setSuperServiceClass("com.hantek.tbbl.core.component.service.IService");
         // 自定义 service 实现类父类
-        strategy.setSuperServiceImplClass("com.demo.core.component.service.ServiceImpl");
+        strategy.setSuperServiceImplClass("com.hantek.tbbl.core.component.service.ServiceImpl");
         mpg.setStrategy(strategy);
 
         // 包配置

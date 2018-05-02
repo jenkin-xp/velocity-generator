@@ -21,7 +21,7 @@ public interface GeneratorMapper {
 
     @Select("SELECT TABLE_NAME, TABLE_COMMENT " +
             "FROM information_schema.TABLES " +
-            "WHERE table_schema = 'demo' " +
+            "WHERE table_schema = 'cq_test' " +
             "ORDER BY TABLE_NAME")
     public List<Map<String,String>> findListTable();
 
