@@ -21,7 +21,6 @@
 			<foreach collection="array" index="index" item="item" open="(" separator="," close=")">
 			        #{item}
 			</foreach>
-		order by TABLE_NAME, COLUMN_NAME
 	</select>
 
 </mapper>

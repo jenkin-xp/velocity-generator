@@ -3,8 +3,6 @@ package com.generator.mapper;
 import com.generator.model.ColumnDo;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -21,10 +19,10 @@ public interface GeneratorMapper {
 
     @Select("SELECT TABLE_NAME, TABLE_COMMENT " +
             "FROM information_schema.TABLES " +
-            "WHERE table_schema = 'cq_test' " +
+            "WHERE table_schema = #{tableSchema, jdbcType=VARCHAR} " +
             "ORDER BY TABLE_NAME")
-    public List<Map<String,String>> findListTable();
+    List<Map<String,String>> findListTable(@Param("tableSchema") String tableSchema);
 
-    public List<ColumnDo> findListColumn(String[] tableNames);
+    List<ColumnDo> findListColumn(String[] tableNames);
 
 }

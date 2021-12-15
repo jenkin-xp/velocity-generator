@@ -1,18 +1,17 @@
 package com.generator.util;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.*;
-import com.baomidou.mybatisplus.generator.config.converts.OracleTypeConvert;
-import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
-import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.generator.config.DataSource;
+import com.generator.config.MySqlTypeConvert;
 import com.generator.constant.TplEnum;
 import com.generator.dto.GeneratorDto;
 
 public class MybatisPlusGenerator {
 
-
-    public static void generatorTpl(GeneratorDto generatorDto){
+    public static void generatorTpl(GeneratorDto generatorDto, DataSource dataSource){
         AutoGenerator mpg = new AutoGenerator();
 
         // 全局配置
@@ -29,29 +28,33 @@ public class MybatisPlusGenerator {
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL);
-        dsc.setTypeConvert(new OracleTypeConvert() {
-            // 自定义数据库表字段类型转换【可选】
-            @Override
-            public DbColumnType processTypeConvert(String fieldType) {
-                return super.processTypeConvert(fieldType);
-            }
-        });
-        dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("admin");
-        dsc.setPassword("123456");
-        dsc.setUrl("jdbc:mysql://10.1.2.163:3306/cq_test?useUnicode=true&characterEncoding=utf8");
+        dsc.setTypeConvert(MySqlTypeConvert.INSTANCE);
+//        dsc.setTypeConvert(new MySqlTypeConvert() {
+//            // 自定义数据库表字段类型转换【可选】
+//            @Override
+//            public DbColumnType processTypeConvert(String fieldType) {
+//                return super.processTypeConvert(fieldType);
+//            }
+//        });
+        dsc.setDriverName(dataSource.getDriverClassName());
+        dsc.setUsername(dataSource.getUsername());
+        dsc.setPassword(dataSource.getPassword());
+        dsc.setUrl(dataSource.getUrl());
         mpg.setDataSource(dsc);
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
-        //strategy.setTablePrefix(new String[]{"_"});// 此处可以修改为您的表前缀
+        // strategy.setTablePrefix(new String[]{"t_"});// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
         String[] tables = generatorDto.getTableNames().split("\\.");
         strategy.setInclude(tables);
         // 自定义 service 父类
-        strategy.setSuperServiceClass("com.hantek.tbbl.core.component.service.IService");
+        strategy.setSuperServiceClass("com.baomidou.mybatisplus.extension.service.IService");
         // 自定义 service 实现类父类
-        strategy.setSuperServiceImplClass("com.hantek.tbbl.core.component.service.ServiceImpl");
+        strategy.setSuperServiceImplClass("com.baomidou.mybatisplus.extension.service.impl.ServiceImpl");
+        // 自定义 mapper 父类
+        strategy.setSuperMapperClass("com.baomidou.mybatisplus.core.mapper.BaseMapper");
+        strategy.setEntityLombokModel(true);
         mpg.setStrategy(strategy);
 
         // 包配置
@@ -97,7 +100,7 @@ public class MybatisPlusGenerator {
                     tc.setController("/templates/controller.java.vm");
                     break;
             }
-            
+
         }
         mpg.setTemplate(tc);
 

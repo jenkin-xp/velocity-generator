@@ -218,10 +218,10 @@
             tableFields:[],
             dialogTableVisible:false,
             form:{
-                outputDir:'D:\\workspace\\cqrcb_tbbl\\lms\\src\\main\\java',
+                outputDir:'D:\\workspace\\xiaorui\\good-job-server\\src\\main\\java',
                 checkTpl:[],
-                author:'蒋伟',
-                packageName:'com.hantek.tbbl.lms.manage',
+                author:'夏鹏',
+                packageName:'com.good.job',
             },
             tpls:[],
             customFieds:[],
@@ -250,7 +250,7 @@
             this.$nextTick(function () {
                 this.getTables();
                 this.getTemplate();
-                this.getFieldtype();
+                this.getFieldType();
             })
         }
         // 在 `methods` 对象中定义方法
@@ -340,10 +340,10 @@
                         }
                     });
             }
-            ,getFieldtype: function () {
+            ,getFieldType: function () {
                 var _self = this;
                 //通过给定的ID来发送请求
-                axios.get('/fieldtype')
+                axios.get('/fieldType')
                     .then(function(response){
                         if(response.status == 200){
                             _self.fieldTypes = response.data.data;

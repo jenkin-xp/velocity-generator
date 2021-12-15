@@ -22,11 +22,11 @@ import java.util.Map;
 public class GeneratorServiceImpl implements IGeneratorService {
 
     @Autowired
-    GeneratorMapper mapper;
+    private GeneratorMapper mapper;
 
     @Override
-    public List<Map<String,String>> findListTable() {
-        return mapper.findListTable();
+    public List<Map<String,String>> findListTable(String tableSchema) {
+        return mapper.findListTable(tableSchema);
     }
 
     @Override

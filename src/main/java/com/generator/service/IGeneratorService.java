@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public interface IGeneratorService {
 
-    public List<Map<String,String>> findListTable();
-    public List<ColumnDo> findListColumn(String tableName);
+    List<Map<String,String>> findListTable(String tableSchema);
+    List<ColumnDo> findListColumn(String tableName);
 
 }

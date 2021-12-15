@@ -5,9 +5,9 @@ debug: false
 
 spring:
     datasource:
-      url: jdbc:mysql://106.14.182.41:13306/answer?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
-      username: raysdba
-      password: RaysDba2020!!
+      url: jdbc:mysql://47.100.245.63:3306/good_job?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+      username: root
+      password: Root@123456
       # 使用druid数据源
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.jdbc.Driver
@@ -20,4 +20,5 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
 
 table:
-  schema: answer
+  schema: good_job
+

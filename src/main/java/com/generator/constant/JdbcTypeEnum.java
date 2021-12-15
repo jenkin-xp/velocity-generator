@@ -9,6 +9,7 @@ public enum JdbcTypeEnum {
 
     STRING("java.lang.String","varchar","String"),
     INTEGER("java.lang.Integer","int","Integer"),
+    TINYINT("java.lang.Integer","tinyint","Integer"),
     FLOAT("java.lang.Integer","FLOAT","Integer"),
     CLOB("java.lang.String","CLOB","Integer"),
     DATE("java.util.Date","datetime","Date");
