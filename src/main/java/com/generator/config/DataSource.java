@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @Date 2021/12/15 14:31
  * @Version V1.0
  **/
-@Component("DataSourceConfig")
+@Component("dataSourceConfig")
 public class DataSource {
 
     @Value("${spring.datasource.url}")
